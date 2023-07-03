@@ -1,3 +1,4 @@
 .libdragon
-libdragon
 .vscode
+build
+*.z64
