@@ -5,7 +5,12 @@
 #include "vec.h"
 
 
-typedef enum collision_type_e collision_type_t;
+typedef enum collision_type_e{
+    COLL_TRIGGER,
+    COLL_DAMAGE,
+    COLL_WEAKPOINT,
+    COLL_PUSH
+} collision_type_t;
 
 typedef struct circle_s {
 	float x, y;
@@ -23,12 +28,5 @@ typedef struct enemy_s{
     // TODO: add bezier interpolated path information
     vec2 path[3];
 } enemy_t;
-
-typedef enum collision_type_e{
-    COLL_TRIGGER,
-    COLL_DAMAGE,
-    COLL_WEAKPOINT,
-    COLL_PUSH
-} collision_type_t;
 
 bool circle_overlaps(circle_t c1, circle_t c2);
