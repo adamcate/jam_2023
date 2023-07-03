@@ -21,7 +21,7 @@ typedef struct enemy_s{
     collider_t *colliders;
     int health;
     // TODO: add bezier interpolated path information
-    vec3 path[3];
+    vec2 path[3];
 } enemy_t;
 
 typedef enum collision_type_e{
@@ -31,4 +31,4 @@ typedef enum collision_type_e{
     COLL_PUSH
 } collision_type_t;
 
-bool circle_overlaps(circle_t *c1, circle_t *c2);
+bool circle_overlaps(circle_t c1, circle_t c2);
