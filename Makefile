@@ -15,11 +15,11 @@ filesystem/%.sprite: assets/%.png
 	@echo "    [SPRITE] $@"
 	@$(N64_MKSPRITE) -f RGBA16 --compress -o "$(dir $@)" "$<"
 
-#$(BUILD_DIR)/jamentry.dfs: $(assets_conv)
+$(BUILD_DIR)/jamentry.dfs: $(assets_conv)
 $(BUILD_DIR)/jamentry.elf: $(src:%.c=$(BUILD_DIR)/%.o)
 
 jamentry.z64: N64_ROM_TITLE="2023 Jam Entry"
-#jamentry.z64: $(BUILD_DIR)/jamentry.dfs
+jamentry.z64: $(BUILD_DIR)/jamentry.dfs
 
 clean:
 	rm -rf $(BUILD_DIR) filesystem/ jamentry.z64
