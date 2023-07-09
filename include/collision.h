@@ -17,16 +17,11 @@ typedef struct circle_s {
 	float r;
 } circle_t;
 
-typedef struct collider_s {
+typedef struct circle_collider_s {
+    bool enabled;
     circle_t circle;
     collision_type_t type;
-} collider_t;
-
-typedef struct enemy_s{
-    collider_t *colliders;
     int health;
-    // TODO: add bezier interpolated path information
-    vec2 path[3];
-} enemy_t;
+} circle_collider;
 
 bool circle_overlaps(circle_t c1, circle_t c2);
