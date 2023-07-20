@@ -28,9 +28,8 @@ void *mem_zone_alloc(MemZone *z, size_t size) {
 	size = (size + 15) & ~(size_t)15;
 	// How much free space remaining in zone?
 	size_t rem = z->end - z->pos;
-	if (rem < size) {
-		return NULL;  // Out of memory. Put your error handling here.
-	}
+
+	assertf(!(rem < size), "out of memory, \n exceeded by %i bytes", (int)rem);
 
 	void *ptr = (void *)z->pos;
 	z->pos += size;
